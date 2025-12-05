@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-neutral-bg text-neutral-text font-sans antialiased;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-accent-400 text-white font-medium rounded-lg
+           hover:bg-accent-500 transition-colors duration-300 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-sage-500 text-white font-medium rounded-lg
+           hover:bg-sage-600 transition-colors duration-300;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-semibold text-neutral-text mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-slate-blue-500 max-w-2xl;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-sage-500 to-slate-blue-500;
+  }
+}
