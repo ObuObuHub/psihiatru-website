@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { GraduationCap, Award, Users, BookOpen } from 'lucide-react'
+import Image from 'next/image'
 
 const credentials = [
   {
@@ -44,29 +45,14 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            {/* Main Image Placeholder */}
-            <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-sage-100 to-slate-blue-100 shadow-xl overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-white/60 flex items-center justify-center">
-                    <svg
-                      className="w-12 h-12 text-sage-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      />
-                    </svg>
-                  </div>
-                  <p className="text-sage-700 font-medium">Fotografie Cabinet</p>
-                  <p className="text-sage-600 text-sm">(Înlocuiți cu imagine reală)</p>
-                </div>
-              </div>
+            {/* Portrait Image */}
+            <div className="aspect-[4/5] rounded-2xl shadow-xl overflow-hidden relative">
+              <Image
+                src="/portrait.jpg"
+                alt="Dr. Cabinet - Medic Psihiatru"
+                fill
+                className="object-cover"
+              />
             </div>
 
             {/* Experience Badge */}

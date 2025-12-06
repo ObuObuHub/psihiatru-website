@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 import {
   Stethoscope,
   Brain,
@@ -19,6 +20,7 @@ const services = [
     description:
       'Evaluare completă a stării de sănătate mintală, diagnostic și plan de tratament personalizat pentru fiecare pacient.',
     color: 'sage',
+    image: '/thumbnails/thumbnail1.png',
   },
   {
     icon: Brain,
@@ -26,6 +28,7 @@ const services = [
     description:
       'Ședințe de terapie cognitiv-comportamentală și alte abordări terapeutice adaptate nevoilor dumneavoastră.',
     color: 'slate',
+    image: '/thumbnails/thumbnail2.png',
   },
   {
     icon: ClipboardList,
@@ -33,6 +36,7 @@ const services = [
     description:
       'Evaluări psihologice și psihiatrice complete pentru stabilirea unui diagnostic precis și a planului de intervenție.',
     color: 'accent',
+    image: '/thumbnails/thumbnail3.png',
   },
   {
     icon: HeartPulse,
@@ -40,6 +44,7 @@ const services = [
     description:
       'Tratament specializat pentru tulburări de anxietate, depresie, atacuri de panică și alte afecțiuni emoționale.',
     color: 'sage',
+    image: '/thumbnails/thumbnail4.png',
   },
   {
     icon: Moon,
@@ -47,6 +52,7 @@ const services = [
     description:
       'Diagnostic și tratament pentru insomnie, tulburări de ritm circadian și alte probleme legate de somn.',
     color: 'slate',
+    image: '/thumbnails/thumbnail5.png',
   },
   {
     icon: Users,
@@ -54,6 +60,7 @@ const services = [
     description:
       'Suport și îndrumare pentru familiile care au nevoie de ajutor în gestionarea problemelor de sănătate mintală.',
     color: 'accent',
+    image: '/thumbnails/thumbnail6.png',
   },
 ]
 
@@ -113,42 +120,54 @@ export default function Services() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className={`group p-6 bg-white rounded-2xl border-2 border-transparent ${colors.hover} shadow-sm hover:shadow-md transition-all duration-300`}
+                className={`group bg-white rounded-2xl border-2 border-transparent ${colors.hover} shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden`}
               >
-                <div
-                  className={`w-14 h-14 ${colors.icon} rounded-xl flex items-center justify-center mb-5`}
-                >
-                  <service.icon className="w-7 h-7" />
+                {/* Thumbnail Image */}
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <div
+                    className={`absolute top-4 left-4 w-12 h-12 ${colors.icon} rounded-xl flex items-center justify-center shadow-lg`}
+                  >
+                    <service.icon className="w-6 h-6" />
+                  </div>
                 </div>
 
-                <h3 className="text-xl font-semibold text-neutral-text mb-3">
-                  {service.title}
-                </h3>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-neutral-text mb-3">
+                    {service.title}
+                  </h3>
 
-                <p className="text-slate-blue-500 leading-relaxed">
-                  {service.description}
-                </p>
+                  <p className="text-slate-blue-500 leading-relaxed">
+                    {service.description}
+                  </p>
 
-                <div className="mt-5 pt-5 border-t border-gray-100">
-                  <a
-                    href="#contact"
-                    className="text-sage-500 hover:text-sage-600 font-medium text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all"
-                  >
-                    Programează consultație
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                  <div className="mt-5 pt-5 border-t border-gray-100">
+                    <a
+                      href="#contact"
+                      className="text-sage-500 hover:text-sage-600 font-medium text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </a>
+                      Programează consultație
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             )

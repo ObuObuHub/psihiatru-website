@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Heart, Shield, Clock } from 'lucide-react'
+import Image from 'next/image'
 
 const features = [
   { icon: Heart, text: 'Abordare Empatică' },
@@ -83,33 +84,15 @@ export default function Hero() {
             className="relative hidden lg:block"
           >
             <div className="relative">
-              {/* Placeholder Image Area */}
-              <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-sage-200 to-slate-blue-200 shadow-2xl overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-white/50 flex items-center justify-center">
-                      <svg
-                        className="w-16 h-16 text-sage-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sage-700 font-medium">
-                      Imagine Medic
-                    </p>
-                    <p className="text-sage-600 text-sm">
-                      (Înlocuiți cu fotografie reală)
-                    </p>
-                  </div>
-                </div>
+              {/* Portrait Image */}
+              <div className="aspect-[4/5] rounded-2xl shadow-2xl overflow-hidden">
+                <Image
+                  src="/portrait.jpg"
+                  alt="Dr. Cabinet - Medic Psihiatru"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
 
               {/* Floating Card */}
