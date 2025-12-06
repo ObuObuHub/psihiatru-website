@@ -20,7 +20,7 @@ const services = [
     description:
       'Evaluare completă a stării de sănătate mintală, diagnostic și plan de tratament personalizat pentru fiecare pacient.',
     color: 'sage',
-    image: '/thumbnails/thumbnail1.png',
+    image: '/thumbnails/thumbnail1.jpg',
   },
   {
     icon: Brain,
@@ -28,7 +28,7 @@ const services = [
     description:
       'Ședințe de terapie cognitiv-comportamentală și alte abordări terapeutice adaptate nevoilor dumneavoastră.',
     color: 'slate',
-    image: '/thumbnails/thumbnail2.png',
+    image: '/thumbnails/thumbnail2.jpg',
   },
   {
     icon: ClipboardList,
@@ -36,7 +36,7 @@ const services = [
     description:
       'Evaluări psihologice și psihiatrice complete pentru stabilirea unui diagnostic precis și a planului de intervenție.',
     color: 'accent',
-    image: '/thumbnails/thumbnail3.png',
+    image: '/thumbnails/thumbnail3.jpg',
   },
   {
     icon: HeartPulse,
@@ -44,7 +44,7 @@ const services = [
     description:
       'Tratament specializat pentru tulburări de anxietate, depresie, atacuri de panică și alte afecțiuni emoționale.',
     color: 'sage',
-    image: '/thumbnails/thumbnail4.png',
+    image: '/thumbnails/thumbnail4.jpg',
   },
   {
     icon: Moon,
@@ -52,7 +52,7 @@ const services = [
     description:
       'Diagnostic și tratament pentru insomnie, tulburări de ritm circadian și alte probleme legate de somn.',
     color: 'slate',
-    image: '/thumbnails/thumbnail5.png',
+    image: '/thumbnails/thumbnail5.jpg',
   },
   {
     icon: Users,
@@ -60,7 +60,7 @@ const services = [
     description:
       'Suport și îndrumare pentru familiile care au nevoie de ajutor în gestionarea problemelor de sănătate mintală.',
     color: 'accent',
-    image: '/thumbnails/thumbnail6.png',
+    image: '/thumbnails/thumbnail6.jpg',
   },
 ]
 
