@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Brain } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 const navLinks = [
   { name: 'Acasă', href: '#acasa' },
@@ -36,7 +37,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#acasa" className="flex items-center gap-2">
-            <Brain className="w-8 h-8 text-sage-500" />
+            <Image
+              src="/thumbnails/thumbnail1.jpg"
+              alt="Logo"
+              width={32}
+              height={32}
+              className="rounded-lg object-cover"
+            />
             <span className="text-xl font-semibold text-neutral-text">
               Dr. Cabinet
             </span>
