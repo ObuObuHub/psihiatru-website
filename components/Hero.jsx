@@ -42,9 +42,10 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-blue-500 mb-8 max-w-xl">
-              Dr. [Nume] – Medic Primar Psihiatru cu peste 15 ani de experiență
-              în tratamentul tulburărilor emoționale și psihice. Oferim un spațiu
-              sigur pentru vindecarea și dezvoltarea personală.
+              Dr. Evelin Andreea Iacomi – Medic Specialist Psihiatru psihoterapeut
+              Cognitiv Comportamentalist, terapeut EMDR cu experiență în tratamentul
+              tulburărilor emoționale și psihice. Oferim un spațiu sigur pentru
+              vindecarea și dezvoltarea personală.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -107,8 +108,8 @@ export default function Hero() {
                     <Heart className="w-6 h-6 text-sage-500" />
                   </div>
                   <div>
-                    <p className="font-semibold text-neutral-text">+2000</p>
-                    <p className="text-sm text-slate-blue-500">Pacienți Ajutați</p>
+                    <p className="font-semibold text-neutral-text text-sm">Psihiatru</p>
+                    <p className="text-sm text-slate-blue-500">terapeut EMDR</p>
                   </div>
                 </div>
               </motion.div>
@@ -125,8 +126,8 @@ export default function Hero() {
                     <Clock className="w-6 h-6 text-accent-500" />
                   </div>
                   <div>
-                    <p className="font-semibold text-neutral-text">15+ Ani</p>
-                    <p className="text-sm text-slate-blue-500">Experiență</p>
+                    <p className="font-semibold text-neutral-text">Vindecare</p>
+                    <p className="text-sm text-slate-blue-500">Dezvoltare</p>
                   </div>
                 </div>
               </motion.div>

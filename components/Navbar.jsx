@@ -45,7 +45,7 @@ export default function Navbar() {
               className="rounded-lg object-cover"
             />
             <span className="text-xl font-semibold text-neutral-text">
-              Dr. Cabinet
+              Dr. Evelin Andreea Iacomi
             </span>
           </a>
 

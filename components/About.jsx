@@ -9,8 +9,8 @@ import Image from 'next/image'
 const credentials = [
   {
     icon: GraduationCap,
-    title: 'Medic Primar Psihiatru',
-    description: 'Universitatea de Medicină și Farmacie',
+    title: 'Medic Specialist Psihiatru',
+    description: 'UMF „Grigore T. Popa" Iași',
   },
   {
     icon: Award,
@@ -62,8 +62,8 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="absolute -bottom-6 -right-6 bg-accent-400 text-white rounded-2xl p-6 shadow-xl"
             >
-              <p className="text-4xl font-bold">15+</p>
-              <p className="text-sm opacity-90">Ani Experiență</p>
+              <p className="text-4xl font-bold">Empatie</p>
+              <p className="text-sm opacity-90">Dedicație</p>
             </motion.div>
           </motion.div>
 
@@ -82,11 +82,11 @@ export default function About() {
             </h2>
 
             <p className="text-slate-blue-500 mb-6 leading-relaxed">
-              Cu o experiență de peste 15 ani în domeniul psihiatriei și
-              psihoterapiei, am ajutat mii de pacienți să-și recapete echilibrul
-              emoțional și să trăiască o viață împlinită. Abordarea mea combină
-              cele mai recente cunoștințe medicale cu o înțelegere profundă a
-              nevoilor fiecărui pacient.
+              Cu experiență, dedicație și empatie în domeniul psihiatriei și
+              psihoterapiei, misiunea mea este să îmi ajut pacienții să-și recapete
+              echilibrul emoțional și să trăiască o viață împlinită. Abordarea mea
+              combină cele mai recente cunoștințe medicale cu o înțelegere profundă
+              a nevoilor fiecărui pacient.
             </p>
 
             <p className="text-slate-blue-500 mb-8 leading-relaxed">

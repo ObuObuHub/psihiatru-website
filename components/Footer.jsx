@@ -30,7 +30,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: 'Adresă',
-    value: 'Str. Exemplu Nr. 10, București',
+    value: 'Str. Exemplu Nr. 10, Iași',
     href: '#',
   },
 ]
@@ -73,7 +73,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <a href="#acasa" className="flex items-center gap-2 mb-6">
               <Brain className="w-8 h-8 text-sage-400" />
-              <span className="text-xl font-semibold">Dr. Cabinet</span>
+              <span className="text-xl font-semibold">Dr. Evelin Andreea Iacomi</span>
             </a>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Oferim servicii complete de psihiatrie și psihoterapie, într-un
