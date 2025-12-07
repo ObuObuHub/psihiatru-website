@@ -4,18 +4,9 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
-import {
-  Stethoscope,
-  Brain,
-  ClipboardList,
-  HeartPulse,
-  Moon,
-  Users,
-} from 'lucide-react'
 
 const services = [
   {
-    icon: Stethoscope,
     title: 'Consultație Psihiatrică',
     description:
       'Evaluare completă a stării de sănătate mintală, diagnostic și plan de tratament personalizat pentru fiecare pacient.',
@@ -23,7 +14,6 @@ const services = [
     image: '/thumbnails/thumbnail1.jpg',
   },
   {
-    icon: Brain,
     title: 'Psihoterapie Individuală',
     description:
       'Ședințe de terapie cognitiv-comportamentală și alte abordări terapeutice adaptate nevoilor dumneavoastră.',
@@ -31,7 +21,6 @@ const services = [
     image: '/thumbnails/thumbnail2.jpg',
   },
   {
-    icon: ClipboardList,
     title: 'Evaluare și Diagnostic',
     description:
       'Evaluări psihologice și psihiatrice complete pentru stabilirea unui diagnostic precis și a planului de intervenție.',
@@ -39,7 +28,6 @@ const services = [
     image: '/thumbnails/thumbnail3.jpg',
   },
   {
-    icon: HeartPulse,
     title: 'Tratament Anxietate și Depresie',
     description:
       'Tratament specializat pentru tulburări de anxietate, depresie, atacuri de panică și alte afecțiuni emoționale.',
@@ -47,7 +35,6 @@ const services = [
     image: '/thumbnails/thumbnail4.jpg',
   },
   {
-    icon: Moon,
     title: 'Tulburări de Somn',
     description:
       'Diagnostic și tratament pentru insomnie, tulburări de ritm circadian și alte probleme legate de somn.',
@@ -55,7 +42,6 @@ const services = [
     image: '/thumbnails/thumbnail5.jpg',
   },
   {
-    icon: Users,
     title: 'Consiliere pentru Familie',
     description:
       'Suport și îndrumare pentru familiile care au nevoie de ajutor în gestionarea problemelor de sănătate mintală.',
@@ -120,54 +106,47 @@ export default function Services() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className={`group bg-white rounded-2xl border-2 border-transparent ${colors.hover} shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden`}
+                className={`group p-6 bg-white rounded-2xl border-2 border-transparent ${colors.hover} shadow-sm hover:shadow-md transition-all duration-300`}
               >
-                {/* Thumbnail Image */}
-                <div className="relative h-48 w-full">
+                {/* Thumbnail Image as Icon */}
+                <div className={`w-14 h-14 ${colors.bg} rounded-xl overflow-hidden mb-5 shadow-sm`}>
                   <Image
                     src={service.image}
                     alt={service.title}
-                    fill
-                    className="object-cover"
+                    width={56}
+                    height={56}
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  <div
-                    className={`absolute top-4 left-4 w-12 h-12 ${colors.icon} rounded-xl flex items-center justify-center shadow-lg`}
-                  >
-                    <service.icon className="w-6 h-6" />
-                  </div>
                 </div>
 
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-neutral-text mb-3">
-                    {service.title}
-                  </h3>
+                <h3 className="text-xl font-semibold text-neutral-text mb-3">
+                  {service.title}
+                </h3>
 
-                  <p className="text-slate-blue-500 leading-relaxed">
-                    {service.description}
-                  </p>
+                <p className="text-slate-blue-500 leading-relaxed">
+                  {service.description}
+                </p>
 
-                  <div className="mt-5 pt-5 border-t border-gray-100">
-                    <a
-                      href="#contact"
-                      className="text-sage-500 hover:text-sage-600 font-medium text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all"
+                <div className="mt-5 pt-5 border-t border-gray-100">
+                  <a
+                    href="#contact"
+                    className="text-sage-500 hover:text-sage-600 font-medium text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all"
+                  >
+                    Programează consultație
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      Programează consultație
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </a>
-                  </div>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </a>
                 </div>
               </motion.div>
             )
