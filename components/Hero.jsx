@@ -1,16 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Heart, Shield, Clock } from 'lucide-react'
+import { Heart } from 'lucide-react'
 import Image from 'next/image'
 
 const features = [
-  { icon: Heart, text: 'Abordare Empatică și Caldă' },
-  { icon: Shield, text: 'Tehnici Bazate pe Dovezi Științifice' },
-  { icon: Heart, text: 'Terapie Centrată pe Eficiență' },
-  { icon: Shield, text: 'Confidențialitate Totală' },
-  { icon: Clock, text: 'Programări Flexibile' },
-  { icon: Clock, text: 'Programări Rapide în Minim 48 de Ore' },
+  'Abordare Empatică și Caldă',
+  'Tehnici Bazate pe Dovezi Științifice',
+  'Terapie Centrată pe Eficiență',
+  'Confidențialitate Totală',
+  'Programări Flexibile',
+  'Programări Rapide în Minim 48 de Ore',
 ]
 
 export default function Hero() {
@@ -69,14 +69,14 @@ export default function Hero() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
               {features.map((feature, index) => (
                 <motion.div
-                  key={feature.text}
+                  key={feature}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   className="flex items-center gap-2 text-slate-blue-600 dark:text-gray-300"
                 >
-                  <feature.icon className="w-4 h-4 md:w-5 md:h-5 text-sage-500 flex-shrink-0" />
-                  <span className="font-medium text-xs md:text-sm leading-tight">{feature.text}</span>
+                  <span className="text-sage-500 flex-shrink-0">·</span>
+                  <span className="font-medium text-xs md:text-sm leading-tight">{feature}</span>
                 </motion.div>
               ))}
             </div>
