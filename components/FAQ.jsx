@@ -47,6 +47,7 @@ function FAQItem({ faq, isOpen, onToggle, index }) {
     >
       <button
         onClick={onToggle}
+        aria-expanded={isOpen}
         className="w-full py-6 flex items-center justify-between text-left group"
       >
         <span className="text-lg font-medium text-neutral-text dark:text-white group-hover:text-sage-600 dark:group-hover:text-sage-400 transition-colors pr-4">
@@ -97,7 +98,7 @@ export default function FAQ() {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="lg:sticky lg:top-32"
+            className="lg:sticky lg:top-24"
           >
             <span className="inline-block px-4 py-2 bg-sage-100 dark:bg-sage-900/50 text-sage-600 dark:text-sage-400 rounded-full text-sm font-medium mb-4">
               Întrebări Frecvente

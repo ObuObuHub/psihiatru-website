@@ -5,7 +5,6 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import {
   Phone,
-  Mail,
   MapPin,
   Clock,
   Brain,
@@ -37,7 +36,7 @@ const quickLinks = [
   { name: 'Acasă', href: '#acasa' },
   { name: 'Despre', href: '#despre' },
   { name: 'Servicii', href: '#servicii' },
-  { name: 'FAQ', href: '#faq' },
+  { name: 'Ajutor', href: '#faq' },
 ]
 
 const facebookUrl = 'https://www.facebook.com/profile.php?id=100089959275594&sfnsn=wa&ref=1'
@@ -152,6 +151,14 @@ export default function Footer() {
         </motion.div>
       </div>
 
+      {/* Privacy Notice */}
+      <div className="border-t border-gray-700 dark:border-slate-800">
+        <div className="container-custom py-4">
+          <p className="text-center text-sm text-gray-500 dark:text-gray-400">
+            Politică de Confidențialitate și Protecția Datelor: Acest site respectă intimitatea vizitatorilor și nu colectează date personale
+          </p>
+        </div>
+      </div>
     </footer>
   )
 }

@@ -66,7 +66,7 @@ export default function Hero() {
             </div>
 
             {/* Features */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.text}
@@ -96,6 +96,7 @@ export default function Hero() {
                   src="/portrait.jpg"
                   alt="Dr. Cabinet - Medic Psihiatru"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                   priority
                 />

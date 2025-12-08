@@ -137,6 +137,7 @@ export default function Services() {
                 <div className="mt-auto pt-5 border-t border-gray-100 dark:border-slate-700">
                   <a
                     href="#contact"
+                    aria-label={`Programează consultație pentru ${service.title}`}
                     className="text-sage-500 hover:text-sage-600 font-medium text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all"
                   >
                     Programează consultație

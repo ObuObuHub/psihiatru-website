@@ -76,6 +76,7 @@ export default function About() {
                 src="/therapy-session.jpg"
                 alt="Dr. Evelin Andreea Iacomi - Sedinta de terapie"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>

@@ -23,17 +23,25 @@ export default function PriceButton() {
       }
     }
 
+    function handleKeyDown(event) {
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+      }
+    }
+
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('keydown', handleKeyDown)
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleKeyDown)
     }
   }, [isOpen])
 
   return (
-    <div className="fixed bottom-6 right-6 z-50" ref={panelRef}>
+    <div className="fixed bottom-6 right-6 z-40" ref={panelRef}>
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -47,6 +55,7 @@ export default function PriceButton() {
               <h3 className="text-white font-semibold">Detalii Consultații</h3>
               <button
                 onClick={() => setIsOpen(false)}
+                aria-label="Închide panoul"
                 className="text-white/80 hover:text-white transition-colors"
               >
                 <X className="w-5 h-5" />
@@ -91,6 +100,8 @@ export default function PriceButton() {
 
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label="Detalii și prețuri consultații"
+        aria-expanded={isOpen}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className={`flex items-center gap-2 px-5 py-3.5 rounded-full shadow-lg transition-colors ${
