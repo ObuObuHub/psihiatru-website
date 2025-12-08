@@ -9,6 +9,7 @@ import {
   Clock,
   Brain,
   Facebook,
+  MessageCircle,
 } from 'lucide-react'
 
 const contactInfo = [
@@ -62,21 +63,11 @@ export default function Footer() {
               <Brain className="w-8 h-8 text-sage-400" />
               <span className="text-xl font-semibold">Dr. Evelin Andreea Iacomi</span>
             </a>
-            <p className="text-gray-400 mb-6 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed">
               Oferim servicii complete de psihiatrie și psihoterapie, într-un
               mediu sigur și confidențial. Sănătatea dumneavoastră mintală este
               prioritatea noastră.
             </p>
-            <a
-              href={facebookUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-[#1877F2] hover:bg-[#166FE5] rounded-lg text-white font-medium transition-colors"
-            >
-              <Facebook className="w-5 h-5" />
-              <span>Facebook</span>
-            </a>
           </div>
 
           {/* Quick Links */}
@@ -139,14 +130,36 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* CTA */}
-            <a
-              href="tel:+40732864814"
-              className="mt-6 inline-flex items-center gap-2 px-5 py-3 bg-sage-500 hover:bg-sage-600 rounded-lg text-white font-medium transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              Sună acum
-            </a>
+            {/* Contact Actions */}
+            <div className="flex flex-col gap-3 mt-6">
+              <a
+                href="tel:+40732864814"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-sage-500 hover:bg-sage-600 rounded-lg text-white font-medium transition-colors w-full"
+              >
+                <Phone className="w-5 h-5" />
+                Sună acum
+              </a>
+              <a
+                href="https://wa.me/40732864814"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#128C7E] rounded-lg text-white font-medium transition-colors w-full"
+              >
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp
+              </a>
+              <a
+                href={facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#1877F2] hover:bg-[#166FE5] rounded-lg text-white font-medium transition-colors w-full"
+              >
+                <Facebook className="w-5 h-5" />
+                Facebook
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>
