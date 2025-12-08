@@ -4,6 +4,7 @@ import About from '@/components/About'
 import Services from '@/components/Services'
 import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
+import PriceButton from '@/components/PriceButton'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Services />
       <FAQ />
       <Footer />
+      <PriceButton />
     </main>
   )
 }

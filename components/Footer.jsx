@@ -10,33 +10,25 @@ import {
   Clock,
   Brain,
   Facebook,
-  Instagram,
-  Linkedin,
 } from 'lucide-react'
 
 const contactInfo = [
   {
     icon: Phone,
     label: 'Telefon',
-    value: '+40 XXX XXX XXX',
-    href: 'tel:+40XXXXXXXXX',
-  },
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'contact@cabinet-psihiatrie.ro',
-    href: 'mailto:contact@cabinet-psihiatrie.ro',
+    value: '+40 732 864 814',
+    href: 'tel:+40732864814',
   },
   {
     icon: MapPin,
     label: 'Adresă',
-    value: 'Str. Exemplu Nr. 10, Iași',
+    value: 'Str. Fagului nr 4, Iași\nClinica Equilibrium, str. Potcoavei nr 2, Iași',
     href: '#',
   },
 ]
 
 const schedule = [
-  { day: 'Luni - Vineri', hours: '09:00 - 18:00' },
+  { day: 'Luni - Vineri', hours: '09:00 - 17:00' },
   { day: 'Sâmbătă', hours: '09:00 - 14:00' },
   { day: 'Duminică', hours: 'Închis' },
 ]
@@ -48,18 +40,14 @@ const quickLinks = [
   { name: 'FAQ', href: '#faq' },
 ]
 
-const socialLinks = [
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-]
+const facebookUrl = 'https://www.facebook.com/profile.php?id=100089959275594&sfnsn=wa&ref=1'
 
 export default function Footer() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <footer id="contact" className="bg-neutral-text text-white">
+    <footer id="contact" className="bg-neutral-text dark:bg-slate-950 text-white">
       {/* Main Footer */}
       <div className="container-custom py-16 md:py-20">
         <motion.div
@@ -80,18 +68,16 @@ export default function Footer() {
               mediu sigur și confidențial. Sănătatea dumneavoastră mintală este
               prioritatea noastră.
             </p>
-            <div className="flex gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 bg-white/10 hover:bg-sage-500 rounded-lg flex items-center justify-center transition-colors"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#1877F2] hover:bg-[#166FE5] rounded-lg text-white font-medium transition-colors"
+            >
+              <Facebook className="w-5 h-5" />
+              <span>Facebook</span>
+            </a>
           </div>
 
           {/* Quick Links */}
@@ -126,7 +112,7 @@ export default function Footer() {
                       <span className="block text-xs text-gray-500 mb-1">
                         {item.label}
                       </span>
-                      <span className="group-hover:text-sage-400">
+                      <span className="group-hover:text-sage-400 whitespace-pre-line">
                         {item.value}
                       </span>
                     </div>
@@ -156,7 +142,7 @@ export default function Footer() {
 
             {/* CTA */}
             <a
-              href="tel:+40XXXXXXXXX"
+              href="tel:+40732864814"
               className="mt-6 inline-flex items-center gap-2 px-5 py-3 bg-sage-500 hover:bg-sage-600 rounded-lg text-white font-medium transition-colors"
             >
               <Phone className="w-4 h-4" />
@@ -166,25 +152,6 @@ export default function Footer() {
         </motion.div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-            <p>
-              © {new Date().getFullYear()} Cabinet Psihiatrie. Toate drepturile
-              rezervate.
-            </p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-sage-400 transition-colors">
-                Politica de Confidențialitate
-              </a>
-              <a href="#" className="hover:text-sage-400 transition-colors">
-                Termeni și Condiții
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </footer>
   )
 }

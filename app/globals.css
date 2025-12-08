@@ -10,13 +10,13 @@
   }
 
   body {
-    @apply bg-neutral-bg text-neutral-text font-sans antialiased;
+    @apply bg-neutral-bg dark:bg-slate-900 text-neutral-text dark:text-gray-100 font-sans antialiased overflow-x-hidden;
   }
 }
 
 @layer components {
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-5 sm:px-6 lg:px-8;
   }
 
   .btn-primary {
@@ -30,16 +30,16 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-semibold text-neutral-text mb-4;
+    @apply text-3xl md:text-4xl font-semibold text-neutral-text dark:text-white mb-4;
   }
 
   .section-subtitle {
-    @apply text-lg text-slate-blue-500 max-w-2xl;
+    @apply text-lg text-slate-blue-500 dark:text-gray-300 max-w-2xl;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-sage-500 to-slate-blue-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-sage-500 to-slate-blue-500 dark:from-sage-400 dark:to-slate-blue-400;
   }
 }

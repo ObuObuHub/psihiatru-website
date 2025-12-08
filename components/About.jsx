@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { GraduationCap, Award, Users, BookOpen } from 'lucide-react'
+import { GraduationCap, Award, Users, BookOpen, Brain, Heart, Shield, Sparkles, FileCheck } from 'lucide-react'
 import Image from 'next/image'
 
 const credentials = [
@@ -15,12 +15,37 @@ const credentials = [
   {
     icon: Award,
     title: 'Competențe Psihoterapie',
-    description: 'Terapie cognitiv-comportamentală',
+    description: 'Terapie cognitiv-comportamentală acreditată COPSI',
+  },
+  {
+    icon: Brain,
+    title: 'Terapie Dialectic-Comportamentală',
+    description: 'Competențe DBT',
+  },
+  {
+    icon: Heart,
+    title: 'Schema Terapie',
+    description: 'Competențe Schema Therapy',
+  },
+  {
+    icon: Sparkles,
+    title: 'Terapie ACT',
+    description: 'Terapie prin acceptare și angajament',
+  },
+  {
+    icon: Shield,
+    title: 'Protocoale EMDR',
+    description: 'Competențe terapie EMDR',
   },
   {
     icon: Users,
     title: 'Membru Colegiul Medicilor',
     description: 'Înregistrat în Registrul Național',
+  },
+  {
+    icon: FileCheck,
+    title: 'Membru Colegiul Psihologilor',
+    description: 'COPSI',
   },
   {
     icon: BookOpen,
@@ -34,7 +59,7 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="despre" className="py-20 md:py-32 bg-white">
+    <section id="despre" className="py-20 md:py-32 bg-white dark:bg-slate-900">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image Side */}
@@ -45,11 +70,11 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            {/* Portrait Image */}
-            <div className="aspect-[4/5] rounded-2xl shadow-xl overflow-hidden relative">
+            {/* Therapy Session Image */}
+            <div className="aspect-[4/3] rounded-2xl shadow-xl overflow-hidden relative">
               <Image
-                src="/portrait.jpg"
-                alt="Dr. Cabinet - Medic Psihiatru"
+                src="/therapy-session.jpg"
+                alt="Dr. Evelin Andreea Iacomi - Sedinta de terapie"
                 fill
                 className="object-cover"
               />
@@ -60,10 +85,10 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="absolute -bottom-6 -right-6 bg-accent-400 text-white rounded-2xl p-6 shadow-xl"
+              className="absolute bottom-4 right-4 lg:-bottom-4 lg:-right-4 bg-accent-400 text-white rounded-2xl p-4 lg:p-6 shadow-xl"
             >
-              <p className="text-4xl font-bold">Empatie</p>
-              <p className="text-sm opacity-90">Dedicație</p>
+              <p className="text-2xl lg:text-4xl font-bold">Empatie</p>
+              <p className="text-xs lg:text-sm opacity-90">Dedicație</p>
             </motion.div>
           </motion.div>
 
@@ -73,7 +98,7 @@ export default function About() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="inline-block px-4 py-2 bg-sage-100 text-sage-600 rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 bg-sage-100 dark:bg-sage-900/50 text-sage-600 dark:text-sage-400 rounded-full text-sm font-medium mb-4">
               Despre Mine
             </span>
 
@@ -81,7 +106,7 @@ export default function About() {
               Dedicat Sănătății Dumneavoastră Mintale
             </h2>
 
-            <p className="text-slate-blue-500 mb-6 leading-relaxed">
+            <p className="text-slate-blue-500 dark:text-gray-300 mb-6 leading-relaxed">
               Cu experiență, dedicație și empatie în domeniul psihiatriei și
               psihoterapiei, misiunea mea este să îmi ajut pacienții să-și recapete
               echilibrul emoțional și să trăiască o viață împlinită. Abordarea mea
@@ -89,7 +114,7 @@ export default function About() {
               a nevoilor fiecărui pacient.
             </p>
 
-            <p className="text-slate-blue-500 mb-8 leading-relaxed">
+            <p className="text-slate-blue-500 dark:text-gray-300 mb-8 leading-relaxed">
               Cred cu tărie că fiecare persoană merită să fie ascultată și
               înțeleasă. În cabinetul meu, veți găsi un spațiu sigur și
               confidențial unde puteți explora provocările cu care vă confruntați
@@ -97,23 +122,23 @@ export default function About() {
             </p>
 
             {/* Credentials Grid */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {credentials.map((item, index) => (
                 <motion.div
                   key={item.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-neutral-bg hover:bg-sage-50 transition-colors"
+                  className="flex items-start gap-2 p-3 rounded-xl bg-neutral-bg dark:bg-slate-800 hover:bg-sage-50 dark:hover:bg-slate-700 transition-colors min-h-[70px]"
                 >
-                  <div className="w-10 h-10 bg-sage-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-sage-600" />
+                  <div className="w-8 h-8 bg-sage-100 dark:bg-sage-900/50 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-4 h-4 text-sage-600 dark:text-sage-400" />
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-neutral-text text-sm">
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-neutral-text dark:text-white text-xs leading-tight">
                       {item.title}
                     </h3>
-                    <p className="text-slate-blue-400 text-xs">
+                    <p className="text-slate-blue-400 dark:text-gray-400 text-xs leading-tight mt-0.5">
                       {item.description}
                     </p>
                   </div>

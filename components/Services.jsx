@@ -11,42 +11,49 @@ const services = [
     description:
       'Evaluare completă a stării de sănătate mintală, diagnostic și plan de tratament personalizat pentru fiecare pacient.',
     color: 'sage',
-    image: '/thumbnails/thumbnail1.jpg',
+    image: '/thumbnails/service-icon.png',
   },
   {
     title: 'Psihoterapie Individuală',
     description:
       'Ședințe de terapie cognitiv-comportamentală și alte abordări terapeutice adaptate nevoilor dumneavoastră.',
     color: 'slate',
-    image: '/thumbnails/thumbnail2.jpg',
+    image: '/thumbnails/service-icon.png',
   },
   {
     title: 'Evaluare și Diagnostic',
     description:
-      'Evaluări psihologice și psihiatrice complete pentru stabilirea unui diagnostic precis și a planului de intervenție.',
+      'Evaluări psihologice și psihiatrice utilizând teste de evaluare complete pentru stabilirea unui diagnostic precis și a planului de intervenție.',
     color: 'accent',
-    image: '/thumbnails/thumbnail3.jpg',
+    image: '/thumbnails/service-icon.png',
   },
   {
     title: 'Tratament Anxietate și Depresie',
     description:
-      'Tratament specializat pentru tulburări de anxietate, depresie, atacuri de panică și alte afecțiuni emoționale.',
+      'Protocoale specializate de scurtă durată de expunere asistată, desensibilizare sistematică, expunere tip flooding, activare comportamentală pentru tulburări de anxietate, depresie, atacuri de panică și alte afecțiuni emoționale.',
     color: 'sage',
-    image: '/thumbnails/thumbnail4.jpg',
+    image: '/thumbnails/service-icon.png',
   },
   {
     title: 'Tulburări de Somn',
     description:
-      'Diagnostic și tratament pentru insomnie, tulburări de ritm circadian și alte probleme legate de somn.',
+      'Diagnostic și protocoale de tratament pentru insomnie, tulburări de ritm circadian și alte probleme legate de somn prin trainingul autogen al somnului și tehnici de relaxare individual ajustate pentru confortul fiecărei persoane.',
     color: 'slate',
-    image: '/thumbnails/thumbnail5.jpg',
+    image: '/thumbnails/service-icon.png',
   },
   {
-    title: 'Consiliere pentru Familie',
+    title: 'Deficit de Atenție și Hiperactivitate',
     description:
-      'Suport și îndrumare pentru familiile care au nevoie de ajutor în gestionarea problemelor de sănătate mintală.',
+      'Diagnostic clinic pentru ADD/ADHD la adulți prin testul standardizat DIVA 5 și protocoale de tratament și consiliere pentru antrenarea atenției și ameliorarea hiperactivității.',
     color: 'accent',
-    image: '/thumbnails/thumbnail6.jpg',
+    image: '/thumbnails/service-icon.png',
+  },
+  {
+    title: 'Consiliere pentru Cuplu și Familie',
+    description:
+      'Suport și îndrumare pentru cupluri și familii care au nevoie de ajutor în gestionarea problemelor de sănătate mintală.',
+    color: 'sage',
+    image: '/thumbnails/service-icon.png',
   },
 ]
 
@@ -73,7 +80,7 @@ export default function Services() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="servicii" className="py-20 md:py-32 bg-neutral-bg">
+    <section id="servicii" className="py-20 md:py-32 bg-neutral-bg dark:bg-slate-800">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -83,7 +90,7 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-block px-4 py-2 bg-sage-100 text-sage-600 rounded-full text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 bg-sage-100 dark:bg-sage-900/50 text-sage-600 dark:text-sage-400 rounded-full text-sm font-medium mb-4">
             Servicii
           </span>
           <h2 className="section-title">
@@ -96,7 +103,7 @@ export default function Services() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => {
             const colors = colorVariants[service.color]
             return (
@@ -106,7 +113,7 @@ export default function Services() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className={`group p-6 bg-white rounded-2xl border-2 border-transparent ${colors.hover} shadow-sm hover:shadow-md transition-all duration-300`}
+                className={`group p-6 bg-white dark:bg-slate-900 rounded-2xl border-2 border-transparent dark:border-slate-700 ${colors.hover} shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full`}
               >
                 {/* Thumbnail Image as Icon */}
                 <div className={`w-14 h-14 ${colors.bg} rounded-xl overflow-hidden mb-5 shadow-sm`}>
@@ -119,15 +126,15 @@ export default function Services() {
                   />
                 </div>
 
-                <h3 className="text-xl font-semibold text-neutral-text mb-3">
+                <h3 className="text-lg font-semibold text-neutral-text dark:text-white mb-3 leading-tight">
                   {service.title}
                 </h3>
 
-                <p className="text-slate-blue-500 leading-relaxed">
+                <p className="text-slate-blue-500 dark:text-gray-300 leading-relaxed text-sm flex-grow">
                   {service.description}
                 </p>
 
-                <div className="mt-5 pt-5 border-t border-gray-100">
+                <div className="mt-auto pt-5 border-t border-gray-100 dark:border-slate-700">
                   <a
                     href="#contact"
                     className="text-sage-500 hover:text-sage-600 font-medium text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all"

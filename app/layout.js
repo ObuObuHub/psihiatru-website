@@ -1,4 +1,5 @@
 import './globals.css'
+import ThemeProvider from '@/components/ThemeProvider'
 
 export const metadata = {
   title: 'Dr. Cabinet Psihiatrie | Îngrijire pentru Sănătatea Mintală',
@@ -15,8 +16,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ro">
-      <body>{children}</body>
+    <html lang="ro" suppressHydrationWarning>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   )
 }
