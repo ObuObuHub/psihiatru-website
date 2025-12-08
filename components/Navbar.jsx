@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sun, Moon } from 'lucide-react'
+import { Menu, X, Sun, Moon, Star } from 'lucide-react'
 import Image from 'next/image'
 import { useTheme } from './ThemeProvider'
+import ReviewsModal from './ReviewsModal'
 
 const navLinks = [
   { name: 'Acasă', href: '#acasa' },
@@ -17,6 +18,7 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [showReviews, setShowReviews] = useState(false)
   const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
@@ -62,6 +64,13 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
+            <button
+              onClick={() => setShowReviews(true)}
+              className="flex items-center gap-1 text-neutral-text dark:text-gray-300 hover:text-sage-500 dark:hover:text-sage-400 transition-colors duration-200 font-medium"
+            >
+              <Star className="w-4 h-4" />
+              Recenzii
+            </button>
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-sage-100 dark:bg-slate-800 text-sage-600 dark:text-sage-400 hover:bg-sage-200 dark:hover:bg-slate-700 transition-colors"
@@ -127,6 +136,16 @@ export default function Navbar() {
                   {link.name}
                 </a>
               ))}
+              <button
+                onClick={() => {
+                  setShowReviews(true)
+                  setIsOpen(false)
+                }}
+                className="flex items-center gap-2 text-neutral-text dark:text-gray-300 hover:text-sage-500 dark:hover:text-sage-400 transition-colors duration-200 font-medium py-2 w-full"
+              >
+                <Star className="w-4 h-4" />
+                Recenzii
+              </button>
               <a
                 href="#contact"
                 className="btn-primary w-full text-center"
@@ -138,6 +157,9 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Reviews Modal */}
+      <ReviewsModal isOpen={showReviews} onClose={() => setShowReviews(false)} />
     </nav>
   )
 }
