@@ -47,7 +47,7 @@ export default function Footer() {
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <footer id="contact" className="bg-neutral-text dark:bg-slate-950 text-white">
+    <footer id="contact" className="scroll-mt-20 bg-neutral-text dark:bg-slate-950 text-white">
       {/* Main Footer */}
       <div className="container-custom py-16 md:py-20">
         <motion.div
