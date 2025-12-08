@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Facebook, Quote } from 'lucide-react'
+import Image from 'next/image'
 
 const reviews = [
   {
@@ -64,7 +65,7 @@ export default function ReviewsModal({ isOpen, onClose }) {
           onClick={onClose}
         >
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
 
           {/* Modal */}
           <motion.div
@@ -72,65 +73,111 @@ export default function ReviewsModal({ isOpen, onClose }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden"
+            className="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
-            <div className="sticky top-0 bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700 px-6 py-4 flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-neutral-text dark:text-white">
-                Recenzii de la pacienți
-              </h2>
-              <button
-                onClick={onClose}
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
-                aria-label="Închide"
-              >
-                <X className="w-5 h-5 text-gray-500 dark:text-gray-400" />
-              </button>
-            </div>
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 shadow-lg transition-colors"
+              aria-label="Închide"
+            >
+              <X className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+            </button>
 
-            {/* Reviews List */}
-            <div className="overflow-y-auto px-6 py-4 space-y-4" style={{ maxHeight: 'calc(85vh - 140px)' }}>
-              {reviews.map((review, index) => (
+            {/* Scrollable Content */}
+            <div className="overflow-y-auto max-h-[90vh]">
+              {/* Hero Section */}
+              <div className="relative bg-gradient-to-br from-sage-100 via-sage-50 to-white dark:from-sage-900/40 dark:via-slate-800 dark:to-slate-900 px-6 py-10 text-center">
+                {/* Decorative circles */}
+                <div className="absolute top-0 left-0 w-32 h-32 bg-sage-200/30 dark:bg-sage-800/20 rounded-full blur-2xl" />
+                <div className="absolute bottom-0 right-0 w-40 h-40 bg-sage-300/20 dark:bg-sage-700/20 rounded-full blur-3xl" />
+
+                {/* Portrait */}
                 <motion.div
-                  key={review.initials}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="bg-gray-50 dark:bg-slate-800 rounded-xl p-4"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="relative mx-auto mb-5"
                 >
-                  <div className="flex gap-4">
-                    {/* Avatar */}
-                    <div className="flex-shrink-0 w-12 h-12 bg-sage-100 dark:bg-sage-900/50 rounded-full flex items-center justify-center">
-                      <span className="text-sage-600 dark:text-sage-400 font-semibold text-sm">
-                        {review.initials}
-                      </span>
-                    </div>
-                    {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start gap-2">
-                        <Quote className="w-4 h-4 text-sage-400 flex-shrink-0 mt-1" />
-                        <p className="text-slate-blue-600 dark:text-gray-300 text-sm leading-relaxed">
-                          {review.text}
-                        </p>
-                      </div>
-                    </div>
+                  <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden shadow-xl ring-4 ring-white dark:ring-slate-700">
+                    <Image
+                      src="/portrait-reviews.jpg"
+                      alt="Dr. Evelin Andreea Iacomi"
+                      width={160}
+                      height={160}
+                      className="object-cover w-full h-full"
+                    />
                   </div>
                 </motion.div>
-              ))}
-            </div>
 
-            {/* Footer */}
-            <div className="sticky bottom-0 bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700 px-6 py-4">
-              <a
-                href={facebookUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-[#1877F2] hover:bg-[#166FE5] rounded-lg text-white font-medium transition-colors"
-              >
-                <Facebook className="w-5 h-5" />
-                Lasă o recenzie pe Facebook
-              </a>
+                {/* Name & Title */}
+                <motion.div
+                  initial={{ y: 10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <h2 className="text-2xl md:text-3xl font-bold text-neutral-text dark:text-white mb-2">
+                    Dr. Evelin Andreea Iacomi
+                  </h2>
+                  <p className="text-sage-600 dark:text-sage-400 font-medium mb-4">
+                    Medic Specialist Psihiatru Psihoterapeut
+                  </p>
+                  <p className="text-slate-blue-500 dark:text-gray-400 text-sm">
+                    {reviews.length} recenzii de la pacienți
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Reviews Grid */}
+              <div className="px-6 py-8 bg-gray-50 dark:bg-slate-800/50">
+                <div className="grid md:grid-cols-2 gap-4">
+                  {reviews.map((review, index) => (
+                    <motion.div
+                      key={review.initials + index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
+                      className="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow"
+                    >
+                      <div className="flex gap-4">
+                        {/* Avatar */}
+                        <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-sage-400 to-sage-600 rounded-full flex items-center justify-center shadow-sm">
+                          <span className="text-white font-semibold text-sm">
+                            {review.initials}
+                          </span>
+                        </div>
+                        {/* Content */}
+                        <div className="flex-1 min-w-0">
+                          <Quote className="w-5 h-5 text-sage-300 dark:text-sage-600 mb-2" />
+                          <p className="text-slate-blue-600 dark:text-gray-300 text-sm leading-relaxed">
+                            {review.text}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer CTA */}
+              <div className="bg-gradient-to-r from-sage-500 to-sage-600 dark:from-sage-600 dark:to-sage-700 px-6 py-8 text-center">
+                <h3 className="text-white text-lg font-semibold mb-2">
+                  Împărtășește experiența ta
+                </h3>
+                <p className="text-sage-100 text-sm mb-4">
+                  Feedback-ul tău ne ajută să îmbunătățim serviciile
+                </p>
+                <a
+                  href={facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 rounded-lg text-sage-600 font-medium transition-colors shadow-lg"
+                >
+                  <Facebook className="w-5 h-5" />
+                  Lasă o recenzie pe Facebook
+                </a>
+              </div>
             </div>
           </motion.div>
         </motion.div>
