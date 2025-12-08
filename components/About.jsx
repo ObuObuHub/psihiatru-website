@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { GraduationCap, Award, Users, BookOpen, Brain, Heart, Shield, Sparkles, FileCheck } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { GraduationCap, Award, Users, BookOpen, Brain, Heart, Shield, Sparkles, FileCheck, ChevronDown } from 'lucide-react'
 import Image from 'next/image'
 
 const credentials = [
@@ -57,6 +57,7 @@ const credentials = [
 export default function About() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const [showCredentials, setShowCredentials] = useState(false)
 
   return (
     <section id="despre" className="py-20 md:py-32 bg-white dark:bg-slate-900">
@@ -122,8 +123,17 @@ export default function About() {
               și puteți descoperi căi spre vindecare și dezvoltare personală.
             </p>
 
+            {/* Credentials Toggle Button (mobile only) */}
+            <button
+              onClick={() => setShowCredentials(!showCredentials)}
+              className="sm:hidden flex items-center gap-2 text-sage-600 dark:text-sage-400 font-medium mb-4"
+            >
+              Competențe și calificări
+              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${showCredentials ? 'rotate-180' : ''}`} />
+            </button>
+
             {/* Credentials Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 ${!showCredentials ? 'hidden sm:grid' : ''}`}>
               {credentials.map((item, index) => (
                 <motion.div
                   key={item.title}
