@@ -65,7 +65,10 @@ export default function ReviewsModal({ isOpen, onClose }) {
           onClick={onClose}
         >
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+          <div
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm"
+            onClick={onClose}
+          />
 
           {/* Modal */}
           <motion.div
