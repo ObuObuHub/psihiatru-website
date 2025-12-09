@@ -58,7 +58,7 @@ export default function Footer() {
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-12"
         >
           {/* Brand Column */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 order-2 md:order-1">
             <a href="#acasa" className="flex items-center gap-2 mb-6">
               <Brain className="w-8 h-8 text-sage-400" />
               <span className="text-xl font-semibold">Dr. Evelin Andreea Iacomi</span>
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="order-3 md:order-2">
             <h3 className="text-lg font-semibold mb-6">Navigare Rapidă</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -88,7 +88,7 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="order-4 md:order-3">
             <h3 className="text-lg font-semibold mb-6">Contact</h3>
             <ul className="space-y-4">
               {contactInfo.map((item) => (
@@ -113,7 +113,7 @@ export default function Footer() {
           </div>
 
           {/* Schedule */}
-          <div>
+          <div className="order-1 md:order-4">
             <h3 className="text-lg font-semibold mb-6">Program</h3>
             <div className="flex items-start gap-3 mb-4">
               <Clock className="w-5 h-5 text-sage-400 mt-0.5 flex-shrink-0" />
