@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Facebook, Quote } from 'lucide-react'
 import Image from 'next/image'
@@ -39,6 +39,8 @@ const reviews = [
 const facebookUrl = 'https://www.facebook.com/profile.php?id=100089959275594&sk=reviews'
 
 export default function ReviewsModal({ isOpen, onClose }) {
+  const scrollRef = useRef(null)
+
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape') onClose()
@@ -46,6 +48,10 @@ export default function ReviewsModal({ isOpen, onClose }) {
     if (isOpen) {
       document.addEventListener('keydown', handleEscape)
       document.body.style.overflow = 'hidden'
+      // Reset scroll position when modal opens
+      if (scrollRef.current) {
+        scrollRef.current.scrollTop = 0
+      }
     }
     return () => {
       document.removeEventListener('keydown', handleEscape)
@@ -89,7 +95,7 @@ export default function ReviewsModal({ isOpen, onClose }) {
             </button>
 
             {/* Scrollable Content */}
-            <div className="overflow-y-auto max-h-[90vh]">
+            <div ref={scrollRef} className="overflow-y-auto max-h-[90vh]">
               {/* Hero Section */}
               <div className="relative bg-gradient-to-br from-sage-100 via-sage-50 to-white dark:from-sage-900/40 dark:via-slate-800 dark:to-slate-900 px-6 py-10 text-center">
                 {/* Decorative circles */}
